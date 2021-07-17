@@ -1,0 +1,56 @@
+.btnContainer{
+  width: 100%;
+}
+.multi-button{
+  margin-left:42%;
+  margin-top: 5rem;
+}
+.multi-button button {
+  background-color:#E0E0E0;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+  color: #4D3252;
+  font-weight: 700;
+  height: 96px;
+  margin-bottom: 48px;
+  margin-right: 48px;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  width: 96px;
+}
+
+.multi-button button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+
+.multi-button button:hover:after {
+  opacity: 1;
+  top: 0;
+  left: 0;
+  transform: translateX(0);
+  transition-property: transform, opacity;
+  transition-duration: 0.7s, 0.15s;
+  transition-timing-function: ease;
+}
+
+button:active:after {
+  opacity: 0;
+}
