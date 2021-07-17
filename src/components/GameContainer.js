@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Blocks from './Blocks';
 import '../style/gameContainer.css';
-// import PlayerOne from './players/PlayerOne';
+import PlayerOne from './players/PlayerOne';
 // import Playertwo from './players/Playertwo';
 import Buttons from './Buttons';
 import Waiting from './Waiting';
@@ -19,12 +19,10 @@ class GameContainer extends Component {
       counter: 0,
       blocks: [],
       winner: '',
-      random1:0,
-      random2:0,
-      random3:0,
-      random4:0,
-     
-
+      random1: 0,
+      random2: 0,
+      random3: 0,
+      random4: 0,
     };
   }
   componentDidMount() {
@@ -55,7 +53,6 @@ class GameContainer extends Component {
 
     //run random handler
     this.randomsHandler();
-
   }
 
   trap = () => {
@@ -70,51 +67,44 @@ class GameContainer extends Component {
   };
 
   //create random handler
-  randomsHandler =()=>{
+  randomsHandler = () => {
     this.setState({
-      random1:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
-      random2:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
-      random3:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
-      random4:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
-    })
-  }
+      random1: Math.ceil(Math.random() * (5 - -3) + -3),
+      random2: Math.ceil(Math.random() * (5 - -3) + -3),
+      random3: Math.ceil(Math.random() * (5 - -3) + -3),
+      random4: Math.ceil(Math.random() * (5 - -3) + -3),
+    });
+  };
 
-// create buttonsHandeler
+  // create buttonsHandeler
   buttonsHandeler = async (random) => {
-   
-    if (this.state.blocks.length+random < 0) {
-      this.state.blocks.length=0
+    if (this.state.blocks.length + random < 0) {
+      this.state.blocks.length = 0;
       return;
     }
-    
+
     this.randomsHandler();
-    this.state.blocks.length =  this.state.blocks.length  +random
-    if (this.state.blocks.length >=31) {
-      this.state.blocks.length=31
-      
+    this.state.blocks.length = this.state.blocks.length + random;
+    if (this.state.blocks.length >= 31) {
+      this.state.blocks.length = 31;
     }
-    
-    if (this.state.blocks.length >= 31){
-      console.log(this.state.player.name)
-      socket.emit('winner',{winner:this.state.player})
-      socket.on('winnerIs',(game)=>{
+
+    if (this.state.blocks.length >= 31) {
+      console.log(this.state.player.name);
+      socket.emit('winner', { winner: this.state.player });
+      socket.on('winnerIs', (game) => {
         this.setState({
-          game:game
-        })
-      })
+          game: game,
+        });
+      });
     }
-  
+
     socket.emit('adding', {
       blocks: this.state.blocks,
       id: this.state.player.id,
       gameId: this.state.game.id,
     });
-
-    
   };
-
-
-  
 
   render() {
     // const turn = this.state.game.turn === this.state.player.id ? 'your move' : 'apponent move'
@@ -125,20 +115,24 @@ class GameContainer extends Component {
     ));
 
     return (
-      <>{this.state.game.winner && <Winner player={this.state.player} winner={this.state.game.winner}/>}
-        {!this.state.game.player2 && <Waiting player={this.state.player} game={this.state.game}/>}
+      <>
+        
+        {this.state.game.winner && (
+          <Winner player={this.state.player} winner={this.state.game.winner} />
+        )}
+        {!this.state.game.player2 && (
+          <Waiting player={this.state.player} game={this.state.game} />
+        )}
 
         {this.state.game.player2 && (
           <>
-            <h1>game status :{this.state.game.id}</h1>
-            <h1>player :{this.state.player.name}</h1>
+          <PlayerOne/>
             <div className="boxContainer">{renderBlocks}</div>
             <Buttons
               state={this.state}
               buttonsHandeler={this.buttonsHandeler}
-              timerFunction ={this.timerFunction}
+              timerFunction={this.timerFunction}
               trap={this.trap}
-            
             />
           </>
         )}
