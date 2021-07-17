@@ -19,6 +19,12 @@ class GameContainer extends Component {
       counter: 0,
       blocks: [],
       winner: '',
+      random1:0,
+      random2:0,
+      random3:0,
+      random4:0,
+     
+
     };
   }
   componentDidMount() {
@@ -46,6 +52,10 @@ class GameContainer extends Component {
         notification: [...this.state.notification, message],
       });
     });
+
+    //run random handler
+    this.randomsHandler();
+
   }
 
   trap = () => {
@@ -59,15 +69,31 @@ class GameContainer extends Component {
     }
   };
 
-  handeleAddOne = async () => {
+  //create random handler
+  randomsHandler =()=>{
+    this.setState({
+      random1:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
+      random2:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
+      random3:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
+      random4:Math.ceil(Math.random() * (5 - (-3)) + (-3)),
+    })
+  }
 
+// create buttonsHandeler
+  buttonsHandeler = async (random) => {
+   
+    if (this.state.blocks.length+random < 0) {
+      this.state.blocks.length=0
+      return;
+    }
     
-
-    const counter = this.state.counter;
-    await this.setState({
-      counter: counter + 1,
-      blocks: [...this.state.blocks, counter],
-    });
+    this.randomsHandler();
+    this.state.blocks.length =  this.state.blocks.length  +random
+    if (this.state.blocks.length >=31) {
+      this.state.blocks.length=31
+      
+    }
+    
     if (this.state.blocks.length >= 31){
       console.log(this.state.player.name)
       socket.emit('winner',{winner:this.state.player})
@@ -77,39 +103,18 @@ class GameContainer extends Component {
         })
       })
     }
-    // const half_length = Math.ceil(this.state.blocks.length / 2);
-    // const  leftSide = this.state.blocks.splice(0,half_length);
-
-    // if(this.state.blocks.length === 15){
-    //   this.setState({
-    //     blocks:leftSide
-    //   })
-    // }
+  
     socket.emit('adding', {
       blocks: this.state.blocks,
       id: this.state.player.id,
       gameId: this.state.game.id,
     });
-  };
-  handeleAddTwo = async () => {
-    if (this.state.blocks.length >= 31) {
-      return;
-    }
-    if (this.state.blocks.length === 30) {
-      return;
-    }
-    const counter = this.state.counter;
-    await this.setState({
-      counter: counter + 1,
-      blocks: [...this.state.blocks, counter, counter + 1],
-    });
 
-    socket.emit('adding', {
-      blocks: this.state.blocks,
-      id: this.state.player.id,
-      gameId: this.state.game.id,
-    });
+    
   };
+
+
+  
 
   render() {
     // const turn = this.state.game.turn === this.state.player.id ? 'your move' : 'apponent move'
@@ -130,9 +135,10 @@ class GameContainer extends Component {
             <div className="boxContainer">{renderBlocks}</div>
             <Buttons
               state={this.state}
-              handeleAddOne={this.handeleAddOne}
-              handeleAddTwo={this.handeleAddTwo}
+              buttonsHandeler={this.buttonsHandeler}
+              timerFunction ={this.timerFunction}
               trap={this.trap}
+            
             />
           </>
         )}
