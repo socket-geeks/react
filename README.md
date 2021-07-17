@@ -13,4 +13,5 @@
 
 ### deployed link of this game:
 
-[https://blox-game.netlify.app/](https://blox-game.netlify.app/)
+- Front-end : [https://blox-game.netlify.app/](https://blox-game.netlify.app/)
+- Back-end : [https://blox-game.herokuapp.com/](https://blox-game.herokuapp.com/)
