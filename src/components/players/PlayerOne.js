@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import './pl1.css'
 
 
 class PlayerOne extends Component {
   render() {
     return (
       <>
-        <h1 style={{textAlign:"left"}} >player One</h1>
+        <div class="container1">
+		      <input type="checkbox"/>
+        </div>
       </>
     );
   }
