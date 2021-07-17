@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import GameContainer from './GameContainer'
 import FormCreateGame from './FormCreateGame'
-import JoinGame from './JoinGame'
+
+import Landing from './Landing'
 class Home extends Component {
 
 
@@ -18,6 +19,8 @@ class Home extends Component {
   createGame = (e,name,id='')=>{
     e.preventDefault()
 
+    console.log(name,id)
+
     this.setState({
       startGame:true,
       close:false,
@@ -31,9 +34,10 @@ class Home extends Component {
   render() {
     return (
       <>
+      
+      {this.state.close && <Landing />}
        {this.state.close && <FormCreateGame createGame={this.createGame}/>}
-        {this.state.close &&<JoinGame joinGame={this.createGame}/>}
-        {this.state.startGame && <GameContainer name={this.state.name} gameId={this.state.id} />}
+       {this.state.startGame && <GameContainer name={this.state.name} gameId={this.state.id} />}
       </>
     )
   }
