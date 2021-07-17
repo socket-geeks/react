@@ -26,7 +26,11 @@ class GameContainer extends Component {
     };
   }
   componentDidMount() {
-    socket = io('localhost:8080/', { transports: ['websocket'] });
+    // socket = io('localhost:8080/', { transports: ['websocket'] });
+    socket = io('https://blox-game.herokuapp.com/', {
+      transports: ['websocket'],
+    });
+
     const event = this.props.gameId ? 'joinGame' : 'createGame';
     socket.on('connect', () => {
       socket.emit(event, { name: this.props.name, gameId: this.props.gameId });
@@ -116,7 +120,6 @@ class GameContainer extends Component {
 
     return (
       <>
-        
         {this.state.game.winner && (
           <Winner player={this.state.player} winner={this.state.game.winner} />
         )}
@@ -126,8 +129,8 @@ class GameContainer extends Component {
 
         {this.state.game.player2 && (
           <>
-          <PlayerOne/>
-            <div className="boxContainer">{renderBlocks}</div>
+            <PlayerOne />
+            <div className='boxContainer'>{renderBlocks}</div>
             <Buttons
               state={this.state}
               buttonsHandeler={this.buttonsHandeler}
