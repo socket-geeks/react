@@ -9,8 +9,8 @@ body{
   margin-bottom: 2rem;
   position: absolute;
   transform: translate(-50%,-50%);
-  top: 15%;
-  left: 7%;
+  top: 20%;
+  left: 11%;
   box-shadow: -7px -7px 15px rgba(255,255,255,0.65),
     7px 7px 15px rgba(70,70,70,0.12);
   border-radius: 5px;
@@ -49,14 +49,14 @@ input[type="checkbox"]:before{
   width: 50px;
   background-color: #ececec;
   box-shadow: -7px -7px 15px rgba(255,255,255,0.75),
-    7px 7px 15px rgba(70,70,70,0.12);
+    7px 7px 15px rgba(138, 0, 0, 0.12);
   border-radius: 50%;
   left: 15px;
 }
 input[type="checkbox"]:after{
   height: 15px;
   width: 15px;
-  background-color: #7a7a7a;
+  background-color: #e65858;
   border-radius: 50%;
   right: -55px;
 }

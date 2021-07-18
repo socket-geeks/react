@@ -1,0 +1,35 @@
+
+.name {
+  width: 50%;
+  margin: auto;
+  color: #dddddd;
+  text-shadow: 2px 2px 4px #a8a8a8, -2px -2px 4px #ffffff;
+  font-size: 4rem;
+  margin-left: 25%;
+  text-align: center;
+}
+
+
+@keyframes largePopOut {
+	from, 40% {
+		box-shadow:
+			0 0 0 var(--shade4) inset,
+			0 0 0 var(--shade1) inset,
+			0 0 0 var(--shade1), 
+			0 0 0 var(--shade4);
+	}
+	60% {
+		box-shadow:
+			0.15em 0.15em 0.15em var(--shade4) inset,
+			-0.15em -0.15em 0.15em var(--shade1) inset,
+			2em 2em 2em var(--shade1), 
+			-2em -2em 4em var(--shade4);
+	}
+	80%, to {
+		box-shadow:
+			0.15em 0.15em 0.15em var(--shade4) inset,
+			-0.15em -0.15em 0.15em var(--shade1) inset,
+			1em 1em 2em var(--shade1), 
+			-1em -1em 2em var(--shade4);
+	}
+}

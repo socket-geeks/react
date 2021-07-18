@@ -9,8 +9,11 @@ class Waiting extends Component {
       <>
         <div className="waitingMsg"></div>
         <div className="waitingMsg2">
+        The game has been created, send `Game ID` to your friend to join you
+        </div>
 
-        The game has been created. Game id: {id}. Send this to your friend to join you
+        <div className="waitingMsg3">
+          {id}
         </div>
 
         <div class="ring ring1"></div>

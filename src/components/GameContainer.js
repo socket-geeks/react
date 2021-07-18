@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Blocks from './Blocks';
 import '../style/gameContainer.css';
 import PlayerOne from './players/PlayerOne';
-// import Playertwo from './players/Playertwo';
+import Playertwo from './players/Playertwo';
 import Buttons from './Buttons';
 import Waiting from './Waiting';
 import Winner from './Winner';
@@ -129,7 +129,8 @@ class GameContainer extends Component {
 
         {this.state.game.player2 && (
           <>
-            <PlayerOne />
+            <PlayerOne state={this.state} />
+            <Playertwo state={this.state} />
             <div className='boxContainer'>{renderBlocks}</div>
             <Buttons
               state={this.state}

@@ -8,11 +8,23 @@
   margin: auto;
   border-radius: 33px;
   background: linear-gradient(145deg, #cdd0d8, #f4f7ff);
-  box-shadow: 5px 5px 6px #5b5c60, -5px -5px 6px #bdb6b6;
+  box-shadow: 2px 2px 2px #5b5c60, -2px -2px 2px #bdb6b6;
   color: #989899;
   text-shadow: 1px 1px 1px #ffff;
   text-align: center;
   padding: 1rem;
+}
+.waitingMsg3 {
+  width: 16%;
+  margin-top: 6.5rem;
+  height: 5vh;
+  margin-left: 10rem;
+  border-radius: 33px;
+  background: linear-gradient(145deg, #cdd0d8, #f4f7ff);
+  box-shadow: 2px 2px 2px #5b5c60, -2px -2px 2px #bdb6b6;
+  color: #989899;
+  text-shadow: 1px 1px 1px #ffff;
+  text-align: center;
 }
 
 .ring {
@@ -40,10 +52,10 @@
     background-color: #ececec;
   }
   20% {
-    background-color: #5a5958;
+    background-color: #2b2a28;
   }
   100% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
 }
 
@@ -54,13 +66,13 @@
 }
 @keyframes glow3 {
   20% {
-    background-color: #5a5958;
+    background-color: #ececec;
   }
   40% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
   100% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
 }
 
@@ -74,10 +86,10 @@
     background-color: #ececec;
   }
   60% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
   100% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
 }
 
@@ -91,9 +103,9 @@
     background-color: #ececec;
   }
   80% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
   100% {
-    background-color: #5a5958;
+    background-color: #ffad00;
   }
 }

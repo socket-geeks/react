@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../style/winner.css'
 
 class Winner extends Component {
   render() {
@@ -10,8 +11,8 @@ class Winner extends Component {
 
 
     return (
-      <div>
-        <h1>{winner}</h1>        
+      <div className='winner' >
+          <h1>{winner}</h1> 
       </div>
     )
   }
