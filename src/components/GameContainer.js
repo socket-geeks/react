@@ -27,7 +27,7 @@ class GameContainer extends Component {
   }
   componentDidMount() {
     // socket = io('localhost:8080/', { transports: ['websocket'] });
-    socket = io('https://blox-game.herokuapp.com/', {
+    socket = io('https://blox-server.onrender.com/', {
       transports: ['websocket'],
     });
 
